@@ -16,6 +16,7 @@ var gLIVES;
 var gLastlevel;
 var gTimerInterval;
 var gTimer = '0:00.000';
+var gExplposin;
 
 var gLevel = {
     SIZE: 4, //08  //12
@@ -32,6 +33,7 @@ var gGame = {
 function initGame(size) {
     gGame = gGameSetup();
     gLIVES = 3;
+    gExplposin = 0;
     gLevel = gLevelInit(size);
     gLastlevel = gLevel.SIZE;
     gBorad = bulidBorad(size);
@@ -153,6 +155,8 @@ function cellClicked(elCell) {
         cell.isMarked = true; // for checkVictory calc
         elCell.innerHTML = BOMB;
         if (gLIVES > 0) {
+            gExplposin++;
+            console.log(gExplposin);
             renderLives(gLIVES);
             alert('You stepped on Mine'); //explposin
             return;
@@ -171,6 +175,7 @@ function cellClicked(elCell) {
     }
     checkVictory(gBorad);
     renderSmiley();
+    renderMarkedCount();
 }
 
 //help func -  get 'cell-2-7' and returns {i:2, j:7}
@@ -252,7 +257,9 @@ function renderSmiley() {
 }
 // the function display marked count cell
 function renderMarkedCount() {
-    var LeftMark = gLevel.MINES - gGame.markedCount;
+    var LeftMark = gLevel.MINES - gGame.markedCount - gExplposin;
+    console.log("left mark:", gExplposin);
+    console.log('after exp:', LeftMark)
     var elMark = document.querySelector('.mraked-mine');
     elMark.innerHTML = LeftMark;
 }

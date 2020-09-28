@@ -1,5 +1,4 @@
 'use strict';
-//var gPicIdx = getRandomInteger(0, 4);
 
 function renderBoard(board) {
     var htmlStr = '';
@@ -12,12 +11,12 @@ function renderBoard(board) {
 
             if (cell.isShown && cell.isMine) { //if open a bomb
                 htmlStr += BOMB;
-            } else if (!cell.isShown && cell.isMarked) { // if mark empty cell 
+            } else if (!cell.isShown && cell.isMarked) { // if mark no shown cell 
                 htmlStr += FLAG;
             } else if (!cell.isShown) { // set empty cell
                 htmlStr += WALL;
             } else if (!cell.isMine) { // if open empty cell
-                strcellcell.minesAroundCount;
+                htmlStr += cell.minesAroundCount;
             }
             htmlStr += '\t</td>\n';
         }

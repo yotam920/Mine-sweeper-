@@ -17,14 +17,19 @@
 <body onload="initGame(gBeginner)">
     <h1>MineSweeper Game</h1>
 
-    <div class='timer'>Time: 0:00.000</div>
-    <div class='buttons'>
-        <button class='button1' onclick="initGame(gBeginner)">Beginner</button>
-        <button class='button2' onclick="initGame(gMedium)">Medium</button>
-        <button class='button3' onclick="initGame(gExpert)">Expert</button>
+    <div class="timer">Time: 0:00.000</div>
+    <div class="flaot-container">
+        <div class="lives">Lives:</div>
+        <div class="mraked-mine"></div>
     </div>
-    <div class="vonMessage">🥳 🥳 🥳</div>
-
+    <div class="buttons">
+        <button class="button1" onclick="initGame(gBeginner)">Beginner</button>
+        <button class="button2" onclick="initGame(gMedium)">Medium</button>
+        <button class="button3" onclick="initGame(gExpert)">Expert</button>
+    </div>
+    <div class="smiley">
+        <button class="smiley-button" onclick="initGame(gLastlevel)">🙂</button>
+    </div>
     <table class="board-container">
         <tbody class="board"></tbody>
     </table>
